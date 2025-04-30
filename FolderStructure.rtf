@@ -1,0 +1,38 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 hdfs dfs -mkdir -p /user/tejashree/project/data/raw\
+hdfs dfs -mkdir -p /user/tejashree/project/data/processed\
+hdfs dfs -mkdir -p /user/tejashree/project/data/mappings\
+hdfs dfs -mkdir -p /user/tejashree/project/models/recommendation\
+hdfs dfs -mkdir -p /user/tejashree/project/models/sentiment\
+hdfs dfs -mkdir -p /user/tejashree/project/outputs\
+\
+\
+project/\
+\uc0\u9500 \u9472 \u9472  data/\
+\uc0\u9474    \u9500 \u9472 \u9472  raw/\
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  steam_reviews.csv\
+\uc0\u9474    \u9500 \u9472 \u9472  processed/\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  cleaned_steam_reviews.parquet\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  steam_review_english.parquet\
+\uc0\u9474    \u9492 \u9472 \u9472  mappings/\
+\uc0\u9474        \u9500 \u9472 \u9472  author_mapping.parquet\
+\uc0\u9474        \u9492 \u9472 \u9472  games_mapping.parquet\
+\uc0\u9474 \
+\uc0\u9500 \u9472 \u9472  models/\
+\uc0\u9474    \u9500 \u9472 \u9472  recommendation/\
+\uc0\u9474    \u9474    \u9500 \u9472 \u9472  als_game_recommendation_model/\
+\uc0\u9474    \u9474    \u9492 \u9472 \u9472  test_als_game_recommendation_model/\
+\uc0\u9474    \u9492 \u9472 \u9472  sentiment/\
+\uc0\u9474        \u9500 \u9472 \u9472  sentiment_model/\
+\uc0\u9474        \u9492 \u9472 \u9472  sentiment_model_with_bigrams/\
+\uc0\u9474 \
+\uc0\u9492 \u9472 \u9472  outputs/\
+    \uc0\u9492 \u9472 \u9472  user_recommendations.parquet\
+\
+}
