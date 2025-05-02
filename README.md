@@ -33,14 +33,13 @@ This file contains:
 
 Upload the downloaded file to HDFS into the project directory:
 
-```bash
+
 hdfs dfs -mkdir -p /user/tejashree/project/data/processed
 hdfs dfs -put steam_sentiment_final_batched.parquet /user/tejashree/project/data/processed/cleaned_steam_reviews_with_sentiments.parquet
 
-
 ✅ This saves the file as: /user/tejashree/project/data/processed/cleaned_steam_reviews_with_sentiments.parquet
 
-3️⃣ Run the merge_sentiment.py script
+### 3️⃣ ** Run the merge_sentiment.py script**
 This script merges the sentiment dataset into the cleaned reviews using review_id.
 
 Run the script via Spark: spark-submit merge_sentiment.py
@@ -49,13 +48,13 @@ Run the script via Spark: spark-submit merge_sentiment.py
 ✅ Output will be saved as: /user/tejashree/project/data/processed/cleaned_steam_reviews_merged.parquet
 This merged file includes the sentiment columns.
 
-4️⃣ Verify app3.py is using merged dataset
+###4️⃣ **Verify app3.py is using merged dataset**
 Open app3.py and ensure the following line points to the merged dataset:
 
 df = spark.read.parquet("/user/tejashree/project/data/processed/cleaned_steam_reviews_merged.parquet")
 ✅ This ensures the app reads the merged dataset with sentiment info.
 
-5️⃣ Run the Streamlit app
+###5️⃣ **Run the Streamlit app**
 Launch the app:
 
 streamlit run app3.py
