@@ -9,8 +9,10 @@
 | app_id (Game ID) | app_name (Name) | review_id (Unique ID) | cleaned_review (Text) | sentiment_label (POSITIVE/NEGATIVE) | sentiment_score (0-1 Confidence) |  
 
 **2️⃣ HDFS Upload:**  
-`hdfs dfs -mkdir -p /user/tejashree/project/data/processed && hdfs dfs -put steam_sentiment_final_batched.parquet /user/tejashree/project/data/processed/cleaned_steam_reviews_with_sentiments.parquet`  
-**Path:** `/user/tejashree/project/data/processed/cleaned_steam_reviews_with_sentiments.parquet`  
+```bash
+`hdfs dfs -mkdir -p /user/tejashree/project/data/processed && hdfs dfs -put steam_sentiment_final_batched.parquet /user/tejashree/project/data/processed/cleaned_steam_reviews_with_sentiments.parquet`
+```
+**Path:** `/user/tejashree/project/data/processed/cleaned_steam_reviews_with_sentiments.parquet`
 
 **3️⃣ Merge Data:**  
 `spark-submit merge_sentiment.py`  
