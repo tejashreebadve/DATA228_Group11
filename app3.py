@@ -66,8 +66,39 @@ if option == "🎮 Game Recommendations":
                 user_recs = full_recs.filter(full_recs.author_index == user_index).toPandas()
 
                 if not user_recs.empty:
+                    # ✅ Pull sentiment info per app
+                    sentiment_pd = df.select("app_name", "sentiment_label", "sentiment_score").toPandas()
+
+                    sentiment_summary = (
+                        sentiment_pd.groupby("app_name")
+                        .agg(
+                            avg_sentiment_score=("sentiment_score", "mean"),
+                            positive_reviews=("sentiment_label", lambda x: (x == "POSITIVE").sum()),
+                            negative_reviews=("sentiment_label", lambda x: (x == "NEGATIVE").sum())
+                        )
+                        .reset_index()
+                    )
+
+                    # ✅ Merge with recommendations
+                    user_recs = user_recs.merge(sentiment_summary, on="app_name", how="left")
+
                     st.success(f"Top {len(user_recs)} recommended games for Steam ID {steam_id}:")
-                    st.dataframe(user_recs[["app_name", "predicted_rating"]].sort_values(by="predicted_rating", ascending=False))
+                    
+                    # ✅ Display text insights for each recommendation
+                    for index, row in user_recs.iterrows():
+                        st.markdown(f"""
+                        ### 🎮 **{row['app_name']}**
+                        - **Predicted Rating:** {row['predicted_rating']:.2f}
+                        - **Avg Sentiment Score:** {row['avg_sentiment_score']:.2f}
+                        - ✅ **{int(row['positive_reviews'])} positive reviews**
+                        - ❌ **{int(row['negative_reviews'])} negative reviews**
+                        """)
+
+                    # ✅ Display table
+                    st.dataframe(
+                        user_recs[["app_name", "predicted_rating", "avg_sentiment_score", "positive_reviews", "negative_reviews"]]
+                        .sort_values(by="predicted_rating", ascending=False)
+                    )
                 else:
                     st.warning("No recommendations found for this user.")
             else:
