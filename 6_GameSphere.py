@@ -4,7 +4,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import explode, col, date_format
 import plotly.express as px
 
-# --- 💅 Sporty Dark Theme Styling ---
+# --- Styling ---
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
@@ -180,7 +180,7 @@ full_recs_with_sentiment = full_recs.join(sentiment_summary, full_recs.app_name 
         "percent_negative"
     )
 
-# ------------------------ 🎮 Game Recommendation Section ------------------------
+# ------------------------  Game Recommendation Section ------------------------
 # with tab1:
 #     st.title("🎮 GameSphere - Game Recommendations")
 #     steam_id = st.text_input("Enter your Steam Author ID (author_steamid):")
@@ -363,4 +363,4 @@ with tab3:
         fig5 = px.line(monthly_pd, x="month", y="count", title="Monthly Review Volume")
         st.plotly_chart(fig5, use_container_width=True)
 
-# ------------------------ 📊 Sentiment Dashboard Section ------------------------
+
