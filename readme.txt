@@ -7,6 +7,7 @@ Please follow the numbered sequence of the main source code files for proper exe
 5_Game_Sentiment_summary.ipynb
 6_GameSphere.py
 7_presentation.pdf 
+8_Project_Final_Report.pdf
 
 All other files in this repository serve as intermediate outputs, documentation, or experimental steps:
 
